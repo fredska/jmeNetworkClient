@@ -10,14 +10,18 @@ import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.asset.AssetManager;
 import com.jme3.math.ColorRGBA;
+import com.jme3.niftygui.NiftyJmeDisplay;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Node;
+import de.lessvoid.nifty.Nifty;
+import de.lessvoid.nifty.screen.Screen;
+import de.lessvoid.nifty.screen.ScreenController;
 
 /**
  *
  * @author root
  */
-public class StartScreenState extends AbstractAppState{
+public class StartScreenState extends AbstractAppState implements ScreenController{
     private ViewPort viewPort;
     private Node rootNode;
     private Node guiNode;
@@ -25,6 +29,7 @@ public class StartScreenState extends AbstractAppState{
     private Node localRootNode = new Node("Start Screen RootNode");
     private Node localGuiNode = new Node("Start Screen GuiNode");
     private final ColorRGBA backgroundColor = ColorRGBA.Gray;
+    
     
     public StartScreenState(SimpleApplication app) {
         this.rootNode = app.getRootNode();
@@ -55,6 +60,18 @@ public class StartScreenState extends AbstractAppState{
     public void stateDetached(AppStateManager stateManager) {
         rootNode.detachChild(localRootNode);
         guiNode.detachChild(localGuiNode);
+    }
+
+    public void bind(Nifty nifty, Screen screen) {
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void onStartScreen() {
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void onEndScreen() {
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

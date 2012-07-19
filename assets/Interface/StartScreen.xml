@@ -5,23 +5,61 @@
   <useStyles filename="nifty-default-styles.xml" />
   <useControls filename="nifty-default-controls.xml" />
 
-  <screen id="start">
-    <layer childLayout="horizontal" valign="bottom">
+  <screen id="start" controller="mygame.screenstate.StartScreenStateController">
+      <layer childLayout="horizontal" valign="top" id="topLayer">
+          <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
+            
+        </panel>
+        <panel width="60%" height="15%" align="center" valign="top" childLayout="vertical" backgroundColor="#55a5" padding="10">
+<!--            <control name="textfield" />-->
+            <text text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        </panel>
+        <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
+            
+        </panel>
+      </layer>
+      
+      
+    <layer childLayout="horizontal" valign="bottom" id="bottomLayer">
         <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
-            <panel width="100%" height="50%" align="center" valign="top" childLayout="center" backgroundColor="#5555">
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
                 <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
-                    
+                    <text text="T1" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
                 </panel>
-                <panel width="50%" height="100%" align="right" valign="center" childLayout="center" backgroundColor="#2222">
-                    
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
+                    <text text="T2" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
+                    <text text="T3" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
+                    <text text="T4" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
                 </panel>
             </panel>
         </panel>
-      <panel width="60%" height="15%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#55a5" padding="10">
-            <control name="textfield" />
-      </panel>
-      <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
-            <text text="Hello Popper!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        <panel width="60%" height="15%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#55a5" padding="10">
+<!--            <control name="textfield" />-->
+            <text text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        </panel>
+        <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
+                    <text text="U1" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
+                    <text text="U2" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
+                    <text text="U3" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
+                    <text text="U4" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
         </panel>
     </layer>
   </screen>

@@ -28,12 +28,14 @@ import com.jme3.network.MessageListener;
 import com.jme3.network.Network;
 import com.jme3.network.Server;
 import com.jme3.network.serializing.Serializer;
+import com.jme3.niftygui.NiftyJmeDisplay;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
 import com.jme3.scene.shape.Quad;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.system.JmeContext;
+import de.lessvoid.nifty.Nifty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -41,6 +43,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
 import mygame.HelloMessage;
+import mygame.screenstate.StartScreenState;
 
 /**
  *
@@ -50,7 +53,10 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
     
     private int PLAYER_NUMBER = 2;
     private boolean startLoop = false;
-        
+    
+    //Gui ScreenState
+    StartScreenState startScreen;
+    
     Client myClient;
     
     //A static node to handle other players connected to the server
@@ -63,6 +69,8 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         
         MyGameClient app = new MyGameClient();
         
+        StartScreenState guiApp = new StartScreenState(app);
+        
         app.start(JmeContext.Type.Display);
     }
     
@@ -71,10 +79,24 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
     {
         this.setPauseOnLostFocus(false);
         mouseInput.setCursorVisible(true);
+        setDisplayFps(false);
+        setDisplayStatView(false);
         //Register all Serialized Classes
         Serializer.registerClass(HelloMessage.class);
         Serializer.registerClass(JavaUtilFieldGameMessage.class, new FieldGameMessageSerializer(JavaUtilFieldGameMessage.class));
         
+        
+        /*
+         * Load the GUI Interface here!
+         */
+        startScreen = new StartScreenState(this);
+        stateManager.attach(startScreen);
+        
+        NiftyJmeDisplay niftyDisplay = new NiftyJmeDisplay(
+            assetManager, inputManager, audioRenderer, guiViewPort);
+        Nifty nifty = niftyDisplay.getNifty();
+        guiViewPort.addProcessor(niftyDisplay);
+        nifty.fromXml("Interface/StartScreen.xml", "start", startScreen);
         
         //Set Basic Material for listener
         basicMaterial = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
