@@ -69,7 +69,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         
         MyGameClient app = new MyGameClient();
         
-        StartScreenState guiApp = new StartScreenState(app);
+        //StartScreenState guiApp = new StartScreenState(app);
         
         app.start(JmeContext.Type.Display);
     }
@@ -96,6 +96,9 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
             assetManager, inputManager, audioRenderer, guiViewPort);
         Nifty nifty = niftyDisplay.getNifty();
         guiViewPort.addProcessor(niftyDisplay);
+        nifty.loadStyleFile("nifty-default-styles.xml");
+        nifty.loadControlFile("nifty-default-controls.xml");
+        
         nifty.fromXml("Interface/StartScreen.xml", "start", startScreen);
         
         //Set Basic Material for listener
@@ -123,6 +126,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         }
         catch(IOException ie){ie.printStackTrace();}
        
+        
     }
     
     

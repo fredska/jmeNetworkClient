@@ -5,10 +5,12 @@
   <useStyles filename="nifty-default-styles.xml" />
   <useControls filename="nifty-default-controls.xml" />
 
-  <screen id="start" controller="mygame.screenstate.StartScreenStateController">
+  <screen id="start" controller="mygame.screenstate.StartScreenState">
       <layer childLayout="horizontal" valign="top" id="topLayer">
           <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
-            
+            <effect>
+                <onStartHover name="nop" onStartEffect="doStuff()" />
+            </effect>
         </panel>
         <panel width="60%" height="15%" align="center" valign="top" childLayout="vertical" backgroundColor="#55a5" padding="10">
 <!--            <control name="textfield" />-->

@@ -29,7 +29,8 @@ public class StartScreenState extends AbstractAppState implements ScreenControll
     private Node localRootNode = new Node("Start Screen RootNode");
     private Node localGuiNode = new Node("Start Screen GuiNode");
     private final ColorRGBA backgroundColor = ColorRGBA.Gray;
-    
+    private Nifty nifty;
+    private Screen screen;
     
     public StartScreenState(SimpleApplication app) {
         this.rootNode = app.getRootNode();
@@ -47,6 +48,8 @@ public class StartScreenState extends AbstractAppState implements ScreenControll
     @Override
     public void update(float tpf) {
         /** any main loop action happens here */
+       
+        //nifty.render(false);
     }
 
     @Override
@@ -63,6 +66,9 @@ public class StartScreenState extends AbstractAppState implements ScreenControll
     }
 
     public void bind(Nifty nifty, Screen screen) {
+        System.out.println("Binding of the page!");
+        this.nifty = nifty;
+        this.screen = screen;
         //throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -72,6 +78,10 @@ public class StartScreenState extends AbstractAppState implements ScreenControll
 
     public void onEndScreen() {
         //throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public void doStuff(){
+        System.out.println("Doing something!");
     }
 
 }

@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
-  <!-- +++++++++++++++++++++++++++++++++++++++ -->
-  <!-- start screen -->
-  <!-- +++++++++++++++++++++++++++++++++++++++ -->
-  <screen id="start" controller="mygame.Main">
-    <layer id="layer" backgroundColor="#003f" childLayout="center">
-      <panel id="panel" height="25%" width="35%" align="center" valign="center" backgroundColor="#f60f" childLayout="center" visibleToMouse="true">
-        <interact onClick="quit()"/>
-        <effect>
-          <onStartScreen name="move" mode="in" direction="top" length="300" startDelay="0" inherit="true"/>
-          <onEndScreen name="move" mode="out" direction="bottom" length="300" startDelay="0" inherit="true"/>
-          <onHover name="pulsate" scaleFactor="0.008" startColor="#f600" endColor="#ffff" post="true"/>
-        </effect>
-        <text id="text" font="aurulent-sans-17.fnt" color="#000f" text="Hello World!" align="center" valign="center" />
-      </panel>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+  <useStyles filename="nifty-default-styles.xml" />
+  <useControls filename="nifty-default-controls.xml" />
+
+  <screen id="start" controller="mygame.screenstate.StartScreenState">
+      <layer childLayout="horizontal" valign="top" id="topLayer">
+          <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
+            <interact onMouseOver="doStuff()" />
+        </panel>
+        <panel width="60%" height="15%" align="center" valign="top" childLayout="vertical" backgroundColor="#55a5" padding="10">
+<!--            <control name="textfield" />-->
+            <text text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        </panel>
+        <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
+            
+        </panel>
+      </layer>
+      
+      
+    <layer childLayout="horizontal" valign="bottom" id="bottomLayer">
+        <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
+                    <text text="T1" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
+                    <text text="T2" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
+                    <text text="T3" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
+                    <text text="T4" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
+        </panel>
+        <panel width="60%" height="15%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#55a5" padding="10">
+<!--            <control name="textfield" />-->
+            <text text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        </panel>
+        <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
+                    <text text="U1" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
+                    <text text="U2" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
+            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
+                    <text text="U3" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
+                    <text text="U4" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                </panel>
+            </panel>
+        </panel>
     </layer>
   </screen>
 </nifty>
