@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
 import mygame.HelloMessage;
+import mygame.screenstate.RunningScreenController;
 import mygame.screenstate.StartScreenState;
 
 /**
@@ -55,7 +56,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
     private boolean startLoop = false;
     
     //Gui ScreenState
-    StartScreenState startScreen;
+    RunningScreenController startScreen;
     
     Client myClient;
     
@@ -64,21 +65,13 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
     private List<IFieldGameMessage> messagequeue = new LinkedList<IFieldGameMessage>();
     public static Material basicMaterial;
     
-    public static void main(String[] args)
-    {
-        
-        MyGameClient app = new MyGameClient();
-        
-        //StartScreenState guiApp = new StartScreenState(app);
-        
-        app.start(JmeContext.Type.Display);
-    }
-    
     @Override
     public void simpleInitApp()
     {
         this.setPauseOnLostFocus(false);
-        mouseInput.setCursorVisible(true);
+        inputManager.setCursorVisible(true); // Allows Nifty to utilize the mouse
+        flyCam.setDragToRotate(true);
+        
         setDisplayFps(false);
         setDisplayStatView(false);
         //Register all Serialized Classes
@@ -89,7 +82,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         /*
          * Load the GUI Interface here!
          */
-        startScreen = new StartScreenState(this);
+        startScreen = new RunningScreenController();
         stateManager.attach(startScreen);
         
         NiftyJmeDisplay niftyDisplay = new NiftyJmeDisplay(
@@ -99,7 +92,9 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         nifty.loadStyleFile("nifty-default-styles.xml");
         nifty.loadControlFile("nifty-default-controls.xml");
         
-        nifty.fromXml("Interface/StartScreen.xml", "start", startScreen);
+        nifty.fromXml("Interface/RunningScreen.xml", "start", startScreen);
+        
+        //flyCam.setDragToRotate(true); // you need the mouse for clicking now 
         
         //Set Basic Material for listener
         basicMaterial = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
@@ -304,4 +299,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         //throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    public void doStuff(){
+        System.out.println("This shouldn't be happening here...");
+    }
 }

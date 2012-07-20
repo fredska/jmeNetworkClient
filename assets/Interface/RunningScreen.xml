@@ -2,61 +2,76 @@
 <nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
-  <useStyles filename="nifty-default-styles.xml" />
-  <useControls filename="nifty-default-controls.xml" />
+    <useStyles filename="nifty-default-styles.xml" />
+    <useControls filename="nifty-default-controls.xml" />
 
-  <screen id="start" controller="mygame.screenstate.StartScreenState">
+  <screen id="start" controller="mygame.screenstate.RunningScreenController">
       <layer childLayout="horizontal" valign="top" id="topLayer">
-          <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
-            <interact onMouseOver="doStuff()" />
+        <panel id="panel_1" width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
+            <interact onMouseOver="doStuff(panel_1)"/>
         </panel>
-        <panel width="60%" height="15%" align="center" valign="top" childLayout="vertical" backgroundColor="#55a5" padding="10">
-<!--            <control name="textfield" />-->
-            <text text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        <panel id="panel_2"  width="60%" height="15%" align="center" valign="top" childLayout="vertical" backgroundColor="#55a5">
+            
+            <text id="topText" text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
         </panel>
-        <panel width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
+        <panel id="panel_3"  width="20%" height="20%" align="center" valign="top" childLayout="vertical" backgroundColor="#1234">
             
         </panel>
       </layer>
       
       
     <layer childLayout="horizontal" valign="bottom" id="bottomLayer">
-        <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
-            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
-                    <text text="T1" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        <panel id="panel_4" width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
+            <panel id="panel_5"  width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel id="panel_6" width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
+                        <control name="button" id="t1_button_select"  label="Tower1" 
+                                align="center" valign="center"
+                                height="90%" width="90%" visibleToMouse="true">
+                            <interact id="test" onClick="doStuff(${CALL.getTowerName(1)})"/>
+                        </control>
                 </panel>
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
-                    <text text="T2" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                <panel id="panel_7" width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
+                    <control name="button" id="t1_button_select"  label="Tower2" 
+                                align="center" valign="center"
+                                height="90%" width="90%" visibleToMouse="true">
+                            <interact id="test" onClick="doStuff(Tower_2)"/>
+                        </control>
                 </panel>
             </panel>
-            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
-                    <text text="T3" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+            <panel id="panel_8"  width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel id="panel_9"  width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
+                    <control name="button" id="t1_button_select"  label="Tower3" 
+                                align="center" valign="center"
+                                height="90%" width="90%" visibleToMouse="true">
+                            <interact id="test" onClick="doStuff(Tower_3)"/>
+                        </control>
                 </panel>
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
-                    <text text="T4" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+                <panel id="panel_10"  width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
+                    <control name="button" id="t1_button_select"  label="Tower4" 
+                                align="center" valign="center"
+                                height="90%" width="90%" visibleToMouse="true">
+                            <interact id="test" onClick="doStuff(Tower_4)"/>
+                        </control>
                 </panel>
             </panel>
         </panel>
-        <panel width="60%" height="15%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#55a5" padding="10">
-<!--            <control name="textfield" />-->
-            <text text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
+        <panel id="panel_11" width="60%" height="15%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#55a5" padding="10">
+            <text id="item_details" text="Details about whatever go here!" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
         </panel>
-        <panel width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
-            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
+        <panel id="panel_12" width="20%" height="20%" align="center" valign="bottom" childLayout="vertical" backgroundColor="#1234">
+            <panel id="panel_13" width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel id="panel_14" width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#6969">
                     <text text="U1" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
                 </panel>
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
+                <panel id="panel_15" width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#AAAA">
                     <text text="U2" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
                 </panel>
             </panel>
-            <panel width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
+            <panel id="panel_16" width="100%" height="50%" align="center" valign="top" childLayout="horizontal">
+                <panel id="panel_17" width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#BBBB">
                     <text text="U3" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
                 </panel>
-                <panel width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
+                <panel id="panel_18" width="50%" height="100%" align="left" valign="center" childLayout="center" backgroundColor="#3333">
                     <text text="U4" font="Interface/Fonts/Default.fnt" width="100%" height="100%" wrap="true" />
                 </panel>
             </panel>
