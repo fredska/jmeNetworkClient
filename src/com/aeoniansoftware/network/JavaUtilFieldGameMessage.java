@@ -7,7 +7,7 @@ package com.aeoniansoftware.network;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
-import com.jme3.network.serializing.Serializable;
+//import com.jme3.network.serializing.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -15,13 +15,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.aeoniansoftware.network.FieldGameMessageSerializer;
 
 /**
  *
  * @author kg
  */
-@Serializable(id=12, serializer=FieldGameMessageSerializer.class)
+//@Serializable(id=12, serializer=FieldGameMessageSerializer.class)
 public class JavaUtilFieldGameMessage 
 extends BaseFieldGameMessage {
 
@@ -34,7 +33,6 @@ extends BaseFieldGameMessage {
     private Map<Integer,Vector2f> v2ffs = new HashMap<Integer,Vector2f>() ;
     private Map<Integer,Double> dfs = new HashMap<Integer, Double>() ;
     private Map<Integer,Float> ffs = new HashMap<Integer, Float>() ;
-    
     private List<IFieldGameMessage> kids = new ArrayList<IFieldGameMessage>() ;
     
 	public JavaUtilFieldGameMessage () {
