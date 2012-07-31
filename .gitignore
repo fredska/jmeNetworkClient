@@ -4,3 +4,5 @@
 *.jar
 *.war
 *.ear
+!./assets/Lib/*.jar
+
