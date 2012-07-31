@@ -64,7 +64,9 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         //Register all Serialized Classes
         Serializer.registerClass(HelloMessage.class);
         FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
-        Serializer.registerClass(IFieldGameMessage.class, new FieldGameMessageSerializer());
+		FieldGameMessageSerializer serializer = new FieldGameMessageSerializer() ;
+        Serializer.registerClass(IFieldGameMessage.class, serializer);
+		Serializer.registerClass(JavaUtilFieldGameMessage.class, serializer);
         
         
         /*
