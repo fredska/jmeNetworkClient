@@ -103,7 +103,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         
         try
         {
-            myClient = Network.connectToServer("localhost", 6013);
+            myClient = Network.connectToServer("74.215.143.110", 6013);
             //myClient.addMessageListener(new ClientListener(), HelloMessage.class);
             myClient.addMessageListener(this, IFieldGameMessage.class);
             myClient.addClientStateListener(this);
