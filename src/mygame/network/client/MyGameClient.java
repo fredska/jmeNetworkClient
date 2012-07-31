@@ -6,45 +6,32 @@ package mygame.network.client;
 
 import com.aeoniansoftware.network.BaseFieldGameMessage;
 import com.aeoniansoftware.network.FieldGameMessageSerializer;
-import com.aeoniansoftware.network.FieldMessageListener;
 import com.aeoniansoftware.network.IFieldGameMessage;
 import com.aeoniansoftware.network.JavaUtilFieldGameMessage;
-import com.bulletphysics.collision.shapes.QuantizedBvhNodes;
 import com.jme3.app.SimpleApplication;
-import com.jme3.asset.MaterialKey;
 import com.jme3.material.Material;
-import com.jme3.material.MaterialDef;
 import com.jme3.math.ColorRGBA;
-import com.jme3.math.Matrix3f;
 import com.jme3.math.Quaternion;
-import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.network.Client;
 import com.jme3.network.ClientStateListener;
-import com.jme3.network.ConnectionListener;
-import com.jme3.network.HostedConnection;
 import com.jme3.network.Message;
 import com.jme3.network.MessageListener;
 import com.jme3.network.Network;
-import com.jme3.network.Server;
 import com.jme3.network.serializing.Serializer;
 import com.jme3.niftygui.NiftyJmeDisplay;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
-import com.jme3.scene.shape.Quad;
 import com.jme3.scene.shape.Sphere;
-import com.jme3.system.JmeContext;
 import de.lessvoid.nifty.Nifty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.Callable;
 import mygame.HelloMessage;
 import mygame.screenstate.RunningScreenController;
-import mygame.screenstate.StartScreenState;
 
 /**
  *
@@ -76,7 +63,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         setDisplayStatView(false);
         //Register all Serialized Classes
         Serializer.registerClass(HelloMessage.class);
-		FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
+        FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
         Serializer.registerClass(IFieldGameMessage.class, new FieldGameMessageSerializer());
         
         
@@ -103,7 +90,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         
         try
         {
-            myClient = Network.connectToServer("74.215.143.110", 6013);
+            myClient = Network.connectToServer("74.215.143.110", 6013, 6014);
             //myClient.addMessageListener(new ClientListener(), HelloMessage.class);
             myClient.addMessageListener(this, IFieldGameMessage.class);
             myClient.addClientStateListener(this);
