@@ -63,7 +63,7 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         setDisplayStatView(false);
         //Register all Serialized Classes
         Serializer.registerClass(HelloMessage.class);
-		FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
+        FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
         Serializer.registerClass(IFieldGameMessage.class, new FieldGameMessageSerializer());
         
         
