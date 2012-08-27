@@ -62,11 +62,14 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         setDisplayFps(false);
         setDisplayStatView(false);
         //Register all Serialized Classes
+//        Serializer.registerClass(HelloMessage.class);
+//        FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
+//		FieldGameMessageSerializer serializer = new FieldGameMessageSerializer() ;
+//        Serializer.registerClass(IFieldGameMessage.class, serializer);
+//		Serializer.registerClass(JavaUtilFieldGameMessage.class, serializer);
         Serializer.registerClass(HelloMessage.class);
-        FieldGameMessageSerializer.setMessageImplType(JavaUtilFieldGameMessage.class);
-		FieldGameMessageSerializer serializer = new FieldGameMessageSerializer() ;
-        Serializer.registerClass(IFieldGameMessage.class, serializer);
-		Serializer.registerClass(JavaUtilFieldGameMessage.class, serializer);
+        Serializer.registerClass(JavaUtilFieldGameMessage.class, new FieldGameMessageSerializer(JavaUtilFieldGameMessage.class));
+        
         
         
         /*
@@ -92,9 +95,9 @@ public class MyGameClient extends SimpleApplication implements MessageListener, 
         
         try
         {
-            myClient = Network.connectToServer("74.215.143.110", 6013, 6014);
+            myClient = Network.connectToServer("localhost", 6013, 6014);
             //myClient.addMessageListener(new ClientListener(), HelloMessage.class);
-            myClient.addMessageListener(this, IFieldGameMessage.class);
+            myClient.addMessageListener(this, JavaUtilFieldGameMessage.class);
             myClient.addClientStateListener(this);
             //myClient.addMessageListener(new ClientFieldMessageListener(), JavaUtilFieldGameMessage.class);
             

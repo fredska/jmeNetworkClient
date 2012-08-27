@@ -1,0 +1,3 @@
+[submodule "assets/Lib/network"]
+	path = assets/Lib/network
+	url = git@github.com:fredska/jmeNetworkBackbone.git
